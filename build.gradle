@@ -1,0 +1,38 @@
+plugins { 
+    id 'org.inferred.processors' version '3.1.0' 
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'java'
+    id 'eclipse'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    processor 'org.immutables:value:2.8.0'
+    compileOnly 'org.immutables:value:2.8.0:annotations'
+    compileOnly 'org.immutables:builder:2.8.0'
+    compileOnly 'org.immutables:gson:2.8.0'
+    implementation 'net.i2p.crypto:eddsa:0.3.0'
+    implementation 'com.google.guava:guava:28.1-jre'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'co.nstant.in:cbor:0.8'
+    implementation 'org.slf4j:slf4j-api:1.7.28'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.63'
+    implementation 'eu.ondryaso.ssd1306:ssd1306:0.1.0'
+    implementation 'com.pi4j:pi4j-core:1.2'
+    testCompile 'junit:junit:4.12'
+    runtimeOnly 'org.slf4j:slf4j-simple:1.7.28'
+}
+
+shadowJar {
+    archiveClassifier = ''
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.github.mphi_rc.fido2.Fido2AuthenticatorCli'
+    }
+}

@@ -1,0 +1,12 @@
+.gradle/
+build/
+.project
+.classpath
+.factorypath
+.settings/
+/.apt_generated/
+/.apt_generated_tests/
+/generated_src/
+/bin/
+/generated/
+config.json
